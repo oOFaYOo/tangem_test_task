@@ -1,5 +1,12 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 body {
   margin: 0;
+  height: 100%;
+  width: 100%;
+  position: absolute;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
@@ -7,3 +14,13 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+#root {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+@font-face {
+  font-family: "GraphikLC";
+  src: url('./fonts/graphiklcweb_medium.ttf') format("truetype");
+}
