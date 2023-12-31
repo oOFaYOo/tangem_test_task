@@ -3,7 +3,9 @@ import frame from './frame.png';
 import SVG from "../SVG";
 
 const BottomBanner = () => {
-    return (
+    if(localStorage.bottomBannerClosed){
+        return null;
+    } else return (
         <div
             className={'bg-gradient-to-b from-[#121212] via-[#070707] via-70% to-[#111111] flex flex-col sm:rounded-2xl ' +
                 'h-[349px] sm:w-[600px] min-w-[385px] w-[100vw] text-[16px]'}>
@@ -11,7 +13,7 @@ const BottomBanner = () => {
                  src={frame}>
             </img>
             <div className={'flex justify-end pt-[15px] pr-[15px] z-10'}>
-                <SVG type={'close'} className={'cursor-pointer'}/>
+                <SVG type={'close'} className={'cursor-pointer'} onClick={ () => {localStorage.bottomBannerClosed = true}} />
             </div>
             <div
                 className={'relative text-white z-10 flex flex-col items-center justify-end grow sm:ml-auto sm:mr-[35px]'}>
@@ -30,7 +32,7 @@ const BottomBanner = () => {
                     at checkout
                 </span>
                 <span
-                    className={'rounded-[14px] bg-white/10 tracking-[0.08px] leading-[17.6px] mb-[55px] px-[24px] py-[12px]'}>
+                    className={'rounded-[14px] cursor-pointer bg-white/10 tracking-[0.08px] leading-[17.6px] mb-[55px] px-[24px] py-[12px]'}>
                     {'Shop now '}
                     <span className={'sm:inline-block hidden'}>
                         through Monday
