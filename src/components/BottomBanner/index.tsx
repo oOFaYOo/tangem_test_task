@@ -11,7 +11,7 @@ const BottomBanner = () => {
                  src={frame}>
             </img>
             <div className={'flex justify-end pt-[15px] pr-[15px] z-10'}>
-            <SVG type={'close'} className={'cursor-pointer'}/>
+                <SVG type={'close'} className={'cursor-pointer'}/>
             </div>
             <div
                 className={'relative text-white z-10 flex flex-col items-center justify-end grow sm:ml-auto sm:mr-[35px]'}>
