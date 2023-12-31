@@ -23,7 +23,7 @@ const BottomBanner = () => {
                 </span>
                 <span
                     className={'bg-gradient-to-r from-[#7D5317] to-[#EDDF95] bg-clip-text text-transparent ' +
-                        'text-[40px] leading-[44px] tracking-[-1.6px] mb-[14px]'}>
+                        'text-[40px] leading-[44px] tracking-[-1.6px] mb-[14px] gradientText'}>
                     10%OFF
                 </span>
                 <span className={'text-[#6C6C70] tracking-[0.08px] leading-[20.8px] mb-[40px]'}>

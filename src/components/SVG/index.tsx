@@ -1,6 +1,7 @@
-import React, {MouseEventHandler} from "react";
+import React from "react";
+import {ISVG} from "../../types";
 
-const SVG = ({type, className='', onClick}: { type: 'close'|'angle'|'dot', className?: string, onClick?:MouseEventHandler<SVGSVGElement> }) => {
+const SVG = ({type, className='', onClick} : ISVG) => {
     switch (type) {
         case 'close':
             return (

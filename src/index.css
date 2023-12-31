@@ -25,3 +25,8 @@ body {
   font-family: "GraphikLC";
   src: url('./fonts/graphiklcweb_medium.ttf') format("truetype");
 }
+
+.gradientText {
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}

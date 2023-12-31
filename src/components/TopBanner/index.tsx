@@ -38,8 +38,8 @@ const TopBanner = () => {
                 <button
                     className={'hidden md:block w-[115px] h-[38px] rounded-[100px] bg-white cursor-pointer mr-6 lg:m-0'}>
                     <span
-                        className={'leading-[17.6px] text-transparent ' +
-                            'bg-gradient-to-r from-black/50 to-40% to-black bg-clip-text'}>
+                        className={'leading-[17.6px] text-transparent bg-clip-text gradientText bg-gradient-to-r ' +
+                            'from-black/50 to-40% to-black'}>
                         Shop now
                     </span>
                 </button>
