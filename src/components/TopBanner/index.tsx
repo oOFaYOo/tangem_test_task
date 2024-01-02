@@ -1,8 +1,8 @@
-import React from 'react';
+import React, {Dispatch} from 'react';
 import frame from './frame.png';
 import SVG from "../SVG";
 
-const TopBanner = () => {
+const TopBanner = ({onClose}: { onClose: Dispatch<boolean> }) => {
 
     return (
         <div
@@ -44,7 +44,11 @@ const TopBanner = () => {
                         Shop now
                     </span>
                 </button>
-                <SVG type={'close'} className={'hidden lg:block cursor-pointer mr-[22px] sm:ml-[14px]'}/>
+                <SVG type={'close'} className={'hidden lg:block cursor-pointer mr-[22px] sm:ml-[14px]'}
+                     onClick={() => {
+                         localStorage.topBannerClosed = true;
+                         onClose(true);
+                     }}/>
             </div>
         </div>
     )

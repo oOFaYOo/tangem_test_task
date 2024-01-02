@@ -1,11 +1,9 @@
-import React from 'react';
+import React, {Dispatch} from 'react';
 import frame from './frame.png';
 import SVG from "../SVG";
 
-const BottomBanner = () => {
-    if(localStorage.bottomBannerClosed){
-        return null;
-    } else return (
+const BottomBanner = ({onClose}: { onClose: Dispatch<boolean> }) => {
+    return (
         <div
             className={'bg-gradient-to-b from-[#121212] via-[#070707] via-70% to-[#111111] flex flex-col sm:rounded-2xl ' +
                 'h-[349px] sm:w-[600px] min-w-[385px] w-[100vw] text-[16px]'}>
@@ -13,7 +11,10 @@ const BottomBanner = () => {
                  src={frame}>
             </img>
             <div className={'flex justify-end pt-[15px] pr-[15px] z-10'}>
-                <SVG type={'close'} className={'cursor-pointer'} onClick={ () => {localStorage.bottomBannerClosed = true}} />
+                <SVG type={'close'} className={'cursor-pointer'} onClick={() => {
+                    localStorage.bottomBannerClosed = true;
+                    onClose(true);
+                }}/>
             </div>
             <div
                 className={'relative text-white z-10 flex flex-col items-center justify-end grow sm:ml-auto sm:mr-[35px]'}>
