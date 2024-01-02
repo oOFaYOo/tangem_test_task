@@ -3,6 +3,7 @@ import frame from './frame.png';
 import SVG from "../SVG";
 
 const TopBanner = () => {
+
     return (
         <div
             className={'bg-[#101010] text-white text-[16px] overflow-hidden flex items-center w-full min-w-[385px] h-[54px]'}>
