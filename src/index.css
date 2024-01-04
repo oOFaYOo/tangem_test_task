@@ -30,3 +30,35 @@ body {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
+
+.slideIn {
+  animation-duration: 500ms;
+  animation-name: slidein;
+  bottom: 0;
+}
+
+@keyframes slidein {
+  from {
+    bottom:-100%;
+  }
+
+  to {
+    bottom:0;
+  }
+}
+
+.slideOut {
+  animation-duration: 700ms;
+  animation-name: slideout;
+  bottom: -100%;
+}
+
+@keyframes slideout {
+  from {
+    bottom:0;
+  }
+
+  to {
+    bottom: -100%;
+  }
+}

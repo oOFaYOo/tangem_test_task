@@ -21,6 +21,13 @@ export function useOnScreen(ref: React.RefObject<any>) {
     return isIntersecting;
 }
 
+function useRenderCount() {
+    const ref = useRef(0);
+    const renderCount = ref.current;
+    ref.current++;
+    return renderCount;
+}
+
 function App() {
 
     const [initialScroll, setInitialScroll] = useState(0);
@@ -29,30 +36,36 @@ function App() {
 
     let ref = useRef<HTMLDivElement>(null);
 
-    let isBottomBannerVisible = !useOnScreen(ref);
-    isBottomBannerVisible = ref.current ? isBottomBannerVisible : initialScroll > 108;
+    const isTopBannerVisible = useOnScreen(ref);
+    const renderCount = useRenderCount();
+    const isBottomBannerVisible = ref.current ? !isTopBannerVisible : initialScroll >= 108;
 
     useEffect(() => {
         setInitialScroll(window.scrollY);
     }, [])
 
     return (
-        <div className='relative w-full h-[3000px]' style={{fontFamily: 'GraphikLC'}} id={'jj'}>
+        <div className='relative w-full h-[3000px]' style={{fontFamily: 'GraphikLC'}}>
             {
                 topBannerClosed
                     ? null
                     :
-                    <div className={'relative top-[54px]'} id={'topBannerArea'} ref={ref}>
+                    <div className={'relative top-[54px]'} ref={ref}>
                         <TopBanner onClose={setTopBannerClosed}/>
                     </div>
             }
             {
-                isBottomBannerVisible && !bottomBannerClosed
-                    ?
-                    <div className={'fixed bottom-0 right-0 md:mr-[17px] lg:mr-[34px]'}>
-                        <BottomBanner onClose={setBottomBannerClosed}/>
-                    </div>
-                    : null
+                bottomBannerClosed || (renderCount <= 2 && initialScroll <= 108)
+                    ? null
+                    : isBottomBannerVisible
+                        ?
+                        <div className={'slideIn fixed right-0 md:mr-[17px] lg:mr-[34px]'} id={'bottomBanner_container'}>
+                            <BottomBanner onClose={setBottomBannerClosed}/>
+                        </div>
+                        :
+                        <div className={'slideOut fixed right-0 md:mr-[17px] lg:mr-[34px]'} id={'bottomBanner_container'}>
+                            <BottomBanner onClose={setBottomBannerClosed}/>
+                        </div>
             }
         </div>
     );
