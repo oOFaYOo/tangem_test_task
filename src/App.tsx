@@ -36,9 +36,8 @@ function App() {
 
     let ref = useRef<HTMLDivElement>(null);
 
-    const isTopBannerVisible = useOnScreen(ref);
+    let isTopBannerVisible = useOnScreen(ref);
     const renderCount = useRenderCount();
-    const isBottomBannerVisible = ref.current ? !isTopBannerVisible : initialScroll >= 108;
 
     useEffect(() => {
         setInitialScroll(window.scrollY);
@@ -55,9 +54,9 @@ function App() {
                     </div>
             }
             {
-                bottomBannerClosed || (renderCount <= 2 && initialScroll <= 108)
+                bottomBannerClosed || (renderCount < 2 && initialScroll <= 108)
                     ? null
-                    : isBottomBannerVisible
+                    : !isTopBannerVisible
                         ?
                         <div className={'slideIn fixed right-0 md:mr-[17px] lg:mr-[34px]'}>
                             <BottomBanner onClose={setBottomBannerClosed}/>
