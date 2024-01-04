@@ -59,11 +59,11 @@ function App() {
                     ? null
                     : isBottomBannerVisible
                         ?
-                        <div className={'slideIn fixed right-0 md:mr-[17px] lg:mr-[34px]'} id={'bottomBanner_container'}>
+                        <div className={'slideIn fixed right-0 md:mr-[17px] lg:mr-[34px]'}>
                             <BottomBanner onClose={setBottomBannerClosed}/>
                         </div>
                         :
-                        <div className={'slideOut fixed right-0 md:mr-[17px] lg:mr-[34px]'} id={'bottomBanner_container'}>
+                        <div className={'slideOut fixed right-0 md:mr-[17px] lg:mr-[34px]'}>
                             <BottomBanner onClose={setBottomBannerClosed}/>
                         </div>
             }
